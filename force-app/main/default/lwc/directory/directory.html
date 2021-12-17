@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-grid slds-wrap slds-p-around_small">
+        <div class="slds-size_1-of-1" >
+            <lightning-icon icon-name="standard:contact_list"></lightning-icon>
+            <span class="slds-p-left_small">Contacts (1234)</span>
+        </div>
+        <lightning-input class="slds-size_1-of-1 slds-p-bottom_small" label="" placeholder="Name/Phone number"></lightning-input>
+        <template for:each={items} for:item="item">
+            <lightning-card 
+                key={item.num}
+                class="slds-size_1-of-1 slds-p-top_small" 
+                variant="Narrow"  
+                title="Supervisor" 
+                icon-name="standard:contact">
+                <lightning-button-icon class="custom-green icon-phone-controller"  icon-name="action:call" size="large" variant="bare" alternative-text="Show More" slot="actions"></lightning-button-icon>
+                <lightning-formatted-phone 
+                    class="slds-size_1-of-1"
+                    value="+18005551212" >
+                </lightning-formatted-phone>
+            </lightning-card>
+            <div key={item.num} class="slds-size_1-of-1 slds-border_bottom slds-m-bottom_small"></div>
+        </template>
+    </div>
+</template>

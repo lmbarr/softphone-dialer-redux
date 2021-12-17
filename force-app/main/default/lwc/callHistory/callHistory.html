@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-grid slds-wrap slds-p-around_small">
+        <lightning-formatted-date-time 
+            value="1547250828000" 
+            year="numeric" 
+            month="short" 
+            day="2-digit" 
+            class="slds-size_1-of-1"
+            weekday="long">
+        </lightning-formatted-date-time>
+        <div class="slds-m-around_small slds-size_1-of-1">
+            <template for:each={historyItems} for:item="item">
+                <c-history-item key={item.num}></c-history-item>
+            </template>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <lightning-input 
+            class="input-phone-number slds-size_1-of-1"
+            type="tel" 
+            name="phone2" 
+            value={props.dialedNumber}
+            onchange={onChangePhoneNumber}
+            placeholder="Enter Phone Number">
+        </lightning-input>
+
+        <div class="slds-size_1-of-1">
+            <c-phone-keyboard></c-phone-keyboard>
+        </div>
+
+        <slot name="button-keypad"></slot>
+    </div>
+
+</template>

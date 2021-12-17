@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <lightning-formatted-name
+            class="slds-size_1-of-1 slds-text-align_center"
+            first-name="John"
+            last-name="Doe">
+        </lightning-formatted-name>
+        <lightning-formatted-phone class="slds-size_1-of-1 slds-text-align_center" value={dialedNumber} ></lightning-formatted-phone>
+        <lightning-icon class="slds-size_1-of-1 slds-text-align_center" icon-name="utility:record" variant="error"></lightning-icon>
+        <lightning-formatted-time class="slds-p-bottom_large slds-size_1-of-1 slds-text-align_center" value="22:12:30.999"></lightning-formatted-time>
+
+        <lightning-button-icon onclick={handleCallTalk} variant="bare" size="large" class="custom-green icon-phone-controller slds-size_1-of-3 slds-text-align_center" icon-name="utility:call" ></lightning-button-icon>
+        <lightning-button-icon onclick={handleCallEnd} variant="bare" size="large" class="custom-red icon-phone-controller slds-size_1-of-3 slds-text-align_center" icon-name="utility:end_call"></lightning-button-icon>
+        <lightning-button-icon onclick={handleCallPauseResume} variant="bare" size="large" class="icon-phone-controller slds-size_1-of-3 slds-text-align_center" icon-name={pauseResumeIconName} disabled={isPauseResumeDisabled}></lightning-button-icon>
+        <lightning-button-icon onclick={handleCallTransfer} variant="bare" size="large" class="icon-phone-controller slds-size_1-of-3 slds-text-align_center" icon-name="utility:outbound_call" disabled={isPauseResumeDisabled}></lightning-button-icon>
+        <lightning-button-icon onclick={handleCallConference} variant="bare" size="large" class="icon-phone-controller slds-size_1-of-3 slds-text-align_center" icon-name="utility:socialshare" disabled={isPauseResumeDisabled}></lightning-button-icon>
+        <lightning-button-icon variant="bare" size="large" class="icon-phone-controller slds-size_1-of-3 slds-text-align_center" icon-name="utility:search" disabled={isPauseResumeDisabled}></lightning-button-icon>
+        <lightning-button-icon variant="bare" size="large" class="icon-phone-controller slds-size_1-of-3 slds-text-align_center" icon-name="utility:keypad" disabled={isPauseResumeDisabled}></lightning-button-icon>
+        <lightning-button-icon variant="bare" size="large" class="icon-phone-controller slds-size_1-of-3 slds-text-align_center" icon-name="utility:chevrondown" disabled={isPauseResumeDisabled}></lightning-button-icon>
+        <template for:each={props.rest} for:item="call">
+            <lightning-card  variant="Narrow" class="slds-size_1-of-1"  title={call.dialedNumber} key={call.callId}>
+                <lightning-button-icon value={call.callId} class="icon-phone-controller" icon-name="utility:down" variant="border-filled" slot="actions"></lightning-button-icon>
+                <lightning-button-icon value={call.callId} class="custom-red icon-phone-controller" icon-name="utility:end_call" variant="border-filled" slot="actions"></lightning-button-icon>
+                <p class="slds-p-horizontal_medium">{call.dialedNumber}</p>
+            </lightning-card>
+        </template>
+    </div>
+</template>

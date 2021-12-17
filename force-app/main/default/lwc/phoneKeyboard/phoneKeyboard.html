@@ -1,0 +1,12 @@
+<template>
+    <div class="dial-container slds-grid slds-wrap"> 
+        <template for:each={CELL_DATA} for:item="cell">
+            <c-phone-key 
+                class="slds-size_1-of-3"
+                key={cell.title} 
+                subtitle={cell.subtitle} 
+                title={cell.title}>
+            </c-phone-key>
+        </template>
+    </div>
+</template>

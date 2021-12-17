@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-grid slds-wrap" >
+        <div class="slds-size_1-of-8 slds-p-around_medium">
+            <slot class="" name="go-back-button"></slot>
+        </div>
+        <div class="slds-size_6-of-8">
+            <img class="slds-p-left_small" src="https://via.placeholder.com/350x65" style="height: 100%;" />
+        </div>
+        <div class="slds-p-around_medium slds-size_1-of-8">
+            <lightning-button-menu class="slds-float_right" menu-alignment="right" 
+            alternative-text="Show menu" variant="container" icon-name="utility:rows">
+                <lightning-menu-item value="MenuItemOne" label="Refresh Token"></lightning-menu-item>
+                <lightning-menu-item value="MenuItemTwo" label="Logout"></lightning-menu-item>
+            </lightning-button-menu>
+        </div>
+    </div>
+</template>

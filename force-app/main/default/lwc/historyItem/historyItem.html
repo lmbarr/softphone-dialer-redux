@@ -1,0 +1,20 @@
+<template>    
+    <lightning-card  variant="Narrow"  title="Luis Miguel" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-size_1-of-1">Outbound</div>
+            <lightning-formatted-phone 
+                class="slds-size_1-of-1"
+                value="+18005551212" >
+            </lightning-formatted-phone>
+            <lightning-formatted-date-time 
+            class="slds-size_1-of-1"
+            value="1547250828000" 
+            year="numeric" 
+            month="short" 
+            day="2-digit" hour="numeric"
+            weekday="long"></lightning-formatted-date-time>
+        </div>
+    </lightning-card>
+    <div class="slds-border_bottom slds-m-bottom_small"></div>
+</template>

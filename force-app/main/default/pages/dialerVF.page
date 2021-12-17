@@ -1,0 +1,22 @@
+<apex:page showHeader="false" sidebar="false">
+    <apex:includeLightning />
+
+    <div id="LightningComponentid" />   
+<!-- the Id of div tag which will be used to render your LWC component  -->
+    <script>
+        document.addEventListener("dosearch", function(event) {
+            console.log('vf event data window listener => ', event.detail);
+        });
+        $Lightning.use("c:dialerAura", function() {
+            $Lightning.createComponent("c:dialerContainer",
+            { 
+                message   : 'Simple Message From VF Page', // You can pass the value to @api attributes if you have inside JavaScript Class.
+				recordId : '{!$CurrentPage.parameters.id}',
+            },
+            "LightningComponentid", // the Id of div tag where your component will be rendered
+            function(cmp) {
+                console.log('Calling the LWC Component');
+            });
+        });
+    </script>
+</apex:page>

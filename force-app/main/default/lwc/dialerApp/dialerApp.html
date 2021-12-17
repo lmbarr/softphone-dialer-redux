@@ -1,0 +1,14 @@
+<template>
+    <template if:true={showInitWindow}>
+        <c-sign-in></c-sign-in>
+    </template>
+    <template if:true={showMainFunctionality}>
+        <c-main-functionality></c-main-functionality>
+    </template>
+    <template if:true={showCallController}>
+        <c-call-controller></c-call-controller>
+    </template>
+    <template if:true={showTransfer}>
+        <c-transfer></c-transfer>
+    </template>
+</template>

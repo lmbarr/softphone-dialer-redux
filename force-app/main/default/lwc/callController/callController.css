@@ -1,0 +1,12 @@
+.icon-phone-controller {
+    height: 70px;
+    --lwc-squareIconUtilityLarge: 30px;	
+}
+
+.custom-green {
+    --lwc-colorTextIconDefault: green;
+}
+.custom-red {
+    --lwc-colorTextIconDefault: red;
+
+}

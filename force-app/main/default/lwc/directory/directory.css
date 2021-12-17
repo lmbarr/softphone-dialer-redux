@@ -1,0 +1,6 @@
+.icon-phone-controller {
+    --lwc-squareIconUtilityLarge: 30px;	
+}
+.custom-green {
+    --lwc-colorTextIconDefault: green;
+}

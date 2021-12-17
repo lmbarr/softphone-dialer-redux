@@ -1,0 +1,40 @@
+<template>
+    <div class="slds-grid slds-wrap slds-p-around_small">
+        <div class="slds-size_1-of-1">
+            <img class="img-logo" style="width: 100%;" src={logo}>
+        </div>
+        <template if:true={props.error}>
+            <div class="slds-size_1-of-1 slds-align_absolute-center slds-text-color_error slds-p-top_small">{props.error}</div>
+        </template>
+
+        <template if:true={isSSOLoggin}>
+            <div class="slds-size_1-of-1 slds-p-top_large slds-p-left_small slds-p-right_small">
+                <button 
+                    type="button" 
+                    onclick={onClickSSOSignIn}
+                    class="slds-button slds-button_brand slds-button_stretch">
+                    Login with SSO
+                </button>
+            </div> 
+        </template>
+
+        <template if:false={isSSOLoggin}>
+            <lightning-input class="slds-size_1-of-1 slds-p-top_small" type="text" data-id="input-usr" placeholder="Username" required></lightning-input>
+            <lightning-input class="slds-size_1-of-1 slds-p-top_small" type="password" data-id="input-password" placeholder="Password" required></lightning-input>
+            <lightning-input
+                type="checkbox"
+                class="slds-size_1-of-1 slds-p-top_small"
+                label="Remember me">
+            </lightning-input>    
+            <div class="slds-size_1-of-1 slds-p-top_large slds-p-left_small slds-p-right_small">
+                <button 
+                    type="button" 
+                    onclick={onClickSignIn}
+                    class="slds-button slds-button_brand slds-button_stretch">
+                    Sign in
+                </button>
+            </div>        
+            <div class="slds-align_absolute-center slds-p-top_small">Copyright (C) 2019 Communications</div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,26 @@
+<template>
+    <c-header></c-header>
+
+    <div class="slds-p-around_small">
+        <lightning-tabset>
+            <lightning-tab label="KEYPAD">
+                <c-keypad>
+                    <div slot="button-keypad" class="slds-size_1-of-1 slds-p-top_large">
+                        <button type="submit" 
+                            onclick={handleCallClick}  
+                            class="slds-button slds-button_brand slds-button_stretch"
+                            disabled={isCallDisabled}>
+                            Call
+                        </button>
+                    </div>
+                </c-keypad>
+            </lightning-tab>
+            <lightning-tab label="CALL HISTORY" title="call history">
+                <c-call-history></c-call-history>
+            </lightning-tab>
+            <lightning-tab label="DIRECTORY">
+                <c-directory></c-directory>
+            </lightning-tab>
+        </lightning-tabset>
+    </div>
+</template>

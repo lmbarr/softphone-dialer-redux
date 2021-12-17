@@ -1,0 +1,33 @@
+<template>
+    <c-header>
+        <lightning-button-icon icon-name="utility:back" slot="go-back-button"></lightning-button-icon>
+    </c-header>
+
+    <div>
+        <lightning-tabset>
+            <lightning-tab label="KEYPAD">
+                <c-keypad>
+                    <div slot="button-keypad" class="slds-size_1-of-1 slds-p-around_large">
+                        <button type="submit" 
+                            onclick={handleTransfer}  
+                            class="button-size slds-button slds-button_brand">
+                            Transfer
+                        </button>
+            
+                        <button type="submit" 
+                        onclick={handleAttendedTransfer}  
+                        class="button-size slds-button slds-button_brand slds-float_right">
+                        Attended Transfer
+                        </button>
+                    </div>
+                </c-keypad>
+            </lightning-tab>
+            <lightning-tab label="CALL HISTORY" title="call history">
+                <c-call-history></c-call-history>
+            </lightning-tab>
+            <lightning-tab label="DIRECTORY">
+                <c-directory></c-directory>
+            </lightning-tab>
+        </lightning-tabset>
+    </div>    
+</template>
