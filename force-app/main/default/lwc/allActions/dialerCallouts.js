@@ -37,46 +37,11 @@ export const callNewCallout = async (num, userName, pwd, authToken) => {
 	console.log(response);
 	const data = await response.json();
 	console.log(data);
-	/*
-	if (response.status === 200) {
-		console.log('error in make call');
-    } 
-    else if (response.status === 1) {
-		const statusCode = response.data.code;
-		if (statusCode === 0) {
-			const callId = response.data.callId; 
-			var lastChar;
-			var stringLength = num.length; // this will be 16
-
-			if(stringLength > 9) {
-				lastChar = num.substr(stringLength - 10);
-
-			} else {
-				lastChar = num.substr(stringLength - 4);
-			}
-            console.log(callid + "=>" + lastChar + ";" );
-            console.log({lastChar});
-		} else {
-			console.log('error in make call');
-		}
-	}*/
 	return data;
 }
 
 export const callTalkCallout = async (authToken, callId, userName, password) => {
 	console.log('<<-----  callTalkAction called  ----->>');
-	/*if(callId === phoneStatesConstants.CONF_CALL_ID) {
-		var path = '/call/unholdConference';
-		var headerKey = btoa(userName + ':' + password);
-		var reqJson = {
-			'userId':userName,
-			'headerKey':headerKey
-		}
-		var response = makeHttpPost(path, authToken, reqJson);
-		console.log('Response recieved from makeHttpPost call : ');
-		console.log(response);
-		return response;
-	} else {*/
 	const path = '/call/talk';
 	const headerKey = btoa(userName + ':' + password);
 	const reqJson = {
@@ -93,19 +58,19 @@ export const callTalkCallout = async (authToken, callId, userName, password) => 
 }
 
 export const callEndCallout = async (authToken, callId, userId, password) => {
-		console.log('-----  Ending call');
-		const path = '/call/end';
-		const headerKey = btoa(userId + ':' + password);
-		const reqJson = {
-			'id': callId,
-			'userId': userId,
-			'headerKey': headerKey
-		}
-		const response = await callout(path, authToken, reqJson);
-		console.log('Response recieved from callEndCallout call : ');
-		console.log(response);
-		const data = await response.json();
-		return data;
+	console.log('-----  Ending call');
+	const path = '/call/end';
+	const headerKey = btoa(userId + ':' + password);
+	const reqJson = {
+		'id': callId,
+		'userId': userId,
+		'headerKey': headerKey
+	}
+	const response = await callout(path, authToken, reqJson);
+	console.log('Response recieved from callEndCallout call : ');
+	console.log(response);
+	const data = await response.json();
+	return data;
 }
 
 export const callHoldCallout = async (authToken, callId, userId, password) => {
